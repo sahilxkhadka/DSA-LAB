@@ -53,7 +53,6 @@ int main()
 {
     struct stack s = {-1};
     int temp = 0, x;
-    char ch = 'Y';
     while (temp != 4)
     {
         printf("\nWhat operation would you like to perform?\n1.Add element to stack\n2.Remove element from stack\n3.Display elements in the stack\n4.Exit\n");
