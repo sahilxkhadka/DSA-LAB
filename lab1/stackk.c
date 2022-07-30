@@ -53,9 +53,10 @@ int main()
 {
     struct stack s = {-1};
     int temp = 0, x;
-    while (temp != 4)
+    char ch = 'Y';
+    while (ch == 'Y' || ch == 'y')
     {
-        printf("\nWhat operation would you like to perform?\n1.Add element to stack\n2.Remove element from stack\n3.Display elements in the stack\n4.Exit\n");
+        printf("\nWhat operation would you like to perform?\n1.Add element to stack\n2.Remove element from stack\n3.Display elements in the stack\n");
         scanf("%d", &temp);
         if (temp == 1)
         {
@@ -73,8 +74,12 @@ int main()
         }
         else
         {
+            printf("Invalid option");
             break;
         }
+        fflush(stdin);
+        printf("\nWould you like to continue (Y / N): ");
+        scanf("%c", &ch);
     }
     printf("\nStack operations completed.");
     return 0;
