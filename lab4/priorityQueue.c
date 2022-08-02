@@ -47,7 +47,7 @@ void dequeue()
     else
     {
         int ind = peek();
-        printf("The deleted value is %d\n", pr[ind].value);
+        printf("The deleted value is %d with priority %d\n", pr[ind].value, pr[ind].priority);
         ind = peek();
         for (int i = ind; i < size; i++)
             pr[i] = pr[i + 1];
@@ -57,7 +57,7 @@ void dequeue()
 void display() {
     if(size > -1) {
         int ind = peek();
-        printf("The value with the highest priority is %d\n", pr[ind].value);
+        printf("The value with the highest priority is %d and has a priority of %d\n", pr[ind].value, pr[ind].priority);
     }
     else   
         printf("Queue is empty\n");
