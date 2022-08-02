@@ -7,13 +7,16 @@ struct item
 };
 struct item pr[100000];
 int size = -1;
-void enqueue(int value, int priority)
+void enqueue()
 {
     if(size == 100000)
         printf("Queue is full\n");
     else {
+        int val, priority;
+        printf("Enter the value and priority for an element: ");
+        scanf("%d %d", &val, &priority);
         size++;
-        pr[size].value = value;
+        pr[size].value = val;
         pr[size].priority = priority;
     }
 }
@@ -44,10 +47,20 @@ void dequeue()
     else
     {
         int ind = peek();
+        printf("The deleted value is %d\n", pr[ind].value);
+        ind = peek();
         for (int i = ind; i < size; i++)
             pr[i] = pr[i + 1];
         size--;
     }
+}
+void display() {
+    if(size > -1) {
+        int ind = peek();
+        printf("The value with the highest priority is %d\n", pr[ind].value);
+    }
+    else   
+        printf("Queue is empty\n");
 }
 void main()
 {
@@ -58,22 +71,11 @@ void main()
         printf("Enter the following respective commands:\n1.Enqueue\n2.Dequeue\n3.Display\n4.Exit\n");
         scanf("%d", &temp);
         if (temp == 1)
-        {
-            printf("Enter the value and priority for an element: ");
-            scanf("%d %d", &val, &priority);
-            enqueue(val, priority);
-        }
+            enqueue();
         else if (temp == 2)
-        {
-            ind = peek();
-            printf("The deleted value is %d\n", pr[ind].value);
             dequeue();
-        }
         else if (temp == 3)
-        {
-            ind = peek();
-            printf("The value with the highest priority is %d\n", pr[ind].value);
-        }
+            display();
         else
             continue;
     } while (temp != 4);
