@@ -92,9 +92,10 @@ void display(struct CQueue *cq)
 
         printf("Queue elements are: \n");
 
-        for (i = (cq->front + 1) % MAX; i <= cq->rear; i = (i + 1) % MAX)
+        for (i = (cq->front + 1) % MAX; i != cq->rear; i = (i + 1) % MAX)
         {
             printf("%d\n", cq->data[i]);
         }
+        printf("%d\n", cq->data[cq->rear]);
     }
 }
