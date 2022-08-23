@@ -60,7 +60,6 @@ void enqueue(struct CQueue *cq)
         scanf("%d", &num);
 
         cq->rear = (cq->rear + 1) % MAX;
-        printf("rear = %d", cq->rear);
         cq->data[cq->rear] = num;
     }
 }
